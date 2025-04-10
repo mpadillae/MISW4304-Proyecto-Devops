@@ -12,6 +12,7 @@ Esta carpeta contiene el código fuente para blacklist API. El proyecto fue real
   - [Instalación](#instalación)
   - [Ejecución local](#ejecución-local) 
   - [Ejecución Docker](#ejecución-docker)
+  - [Ejecución Tests](#ejecución-tests)
   - [Documentación](#documentación)
   - [License](#license)
 
@@ -109,6 +110,40 @@ Para levantar este proyecto necesitarás:
 
     ```
     http://localhost:8000/
+    ```
+
+## Ejecución Tests
+
+1. Cree una base de datos en postgres:
+   
+    **Nota**:  Al crearla, rellene los campos que se encuentran en el archivo .env
+
+    DB_USER=usuario de la base de datos  
+    DB_PASSWORD=contrasena de la base de datos  
+    DB_HOST_DOCKER=localhost  
+    DB_PORT=puerto de la base de datos  
+    DB_NAME=nombre de la base de datos
+
+
+2.  Correr el comando siguiente:
+
+    ```
+    uvicorn src.main:app --reload --port 8000
+    ```
+
+2.  Probar endpoints:
+
+    ```
+    http://127.0.0.1:8000/
+    ```
+
+## Ejecución Docker
+
+
+1.  Parado sobre la raiz del proyecto, correr:
+
+    ```
+    PYTHONPATH=src pytest src/tests/test_blacklist.py
     ```
 
 ## Documentación
